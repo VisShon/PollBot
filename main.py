@@ -31,21 +31,20 @@ async def respct(ctx):
 
 @bot.event
 async def on_button_click(interaction):
-  channel=interaction.channel
   pts=0
+  message = interaction.message
+  
   while(pts!=9):
     embed = question_embed.qe(pts+1,qlist.Ql[pts],qlist.Q1l[pts],qlist.Q2l[pts],qlist.Q3l[pts],qlist.Q4l[pts])
-    
-    await channel.send(embed=embed)
-    message = interaction.message
+    await message.edit(embed=embed)
     for e in qlist.El:
       await message.add_reaction(e)
 
-    emoji=''
-    if emoji==qlist.Al[pts]:
-        await message.edit_message()
-        pts+=1
-    
+    res = await bot.wait_for('reaction_add')
+    if qlist.Al[pts] in str(res.emoji):
+      pts+=1
+      continue
+      
   endEmbed = discord.Embed(
       title='Respct OnBoarding Application',
       description = 'Thanks for participating in the Quiz, You are now a member. Please return to the server.',
