@@ -42,6 +42,7 @@ async def on_button_click(interaction, button):
     await interaction.response.send_message(embed=embed)
   
     pts = 0
+    n=0
     channel = interaction.channel
     message = interaction.message
 
@@ -70,14 +71,23 @@ async def on_button_click(interaction, button):
             answered = True
             playerInput = x
       if str(playerInput.emoji) == qlist.Al[pts]:
-        pts += 1
+        n+=1
+      pts += 1
 
-    endEmbed = discord.Embed(
+    endEmbedPass = discord.Embed(
         title='Respct OnBoarding Application',
         description=
-        'Thanks for participating in the Quiz, You are now a member. Please return to the server.',
+        'Thanks for participating in the Quiz, You are now a member 😀. Please return to the server.',
         color=0xA020F0)
-    await channel.send(embed=endEmbed)
+    endEmbedFail=discord.Embed(
+        title='Respct OnBoarding Application',
+        description=
+        'You Failed 😭 .Thanks for participating in the Quiz and be sure to Try again',
+        color=0xA020F0)
+    if(n>4):
+      await channel.send(embed=endEmbedPass)
+    else:
+      await channel.send(embed=endEmbedFail)
 
 
 bot.run(TOKEN)
