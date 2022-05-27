@@ -48,14 +48,15 @@ async def status(ctx):
   col = db["Users"]
   query={"DiscordId":"Vis.n_u#3089"}
   data =  col.find(query)
+
   for i in data:
-    x=
+    x= f'\nguild: {i["guild"]}, game: {i["game"]}, score: {i["score"]}'
+
   embed = discord.Embed(
         title='Respct OnBoarding Application',
         description=
-        '',
+        x,
         color=0xA020F0)
-  embed.set_image(url="https://i.ibb.co/HqmsfNv/Mask-Group.png")
   await ctx.send(embed=embed)
 
 @bot.event
