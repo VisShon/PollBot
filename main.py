@@ -1,14 +1,20 @@
+from pydoc import cli
 import discord
 from discord.ext import commands
-import qlist
 import question_embed
-import asyncio
-import os
-import time
+import pymongo
+# import qlist
+# import asyncio
+# import time
+# TOKEN = os.getenv('token')
 
-TOKEN = os.getenv('token')
+optList = ['🔶','🟥','🔷','🟩']
+
 bot = commands.Bot(command_prefix='!')
 client = discord.Client()
+
+Mclient = pymongo.MongoClient("mongodb://localhost:27017/")
+db = Mclient["respct"]
 
 
 @bot.command()
@@ -30,8 +36,7 @@ async def respct(ctx):
 
 @bot.event
 async def on_button_click(interaction, button):
-
-  
+    user = interaction.user.
     embed = discord.Embed(
           title='Respct OnBoarding Application',
           description=
@@ -46,20 +51,25 @@ async def on_button_click(interaction, button):
     channel = interaction.channel
     message = interaction.message
 
-  
+    col = db["Quizes"]
+    query={"guildName":"IndieGG"}
+    data =  col.find(query)
+
     while (pts != 9):
   
-      embed = question_embed.qe(pts + 1, qlist.Ql[pts], qlist.Q1l[pts],
-                                qlist.Q2l[pts], qlist.Q3l[pts],
-                                qlist.Q4l[pts])
+      
+      for ques in data:
+        Q=ques["games"]["AxieInfinity"][pts]["Q"]
+        op1=ques["games"]["AxieInfinity"][pts]["op1"]
+        op2=ques["games"]["AxieInfinity"][pts]["op2"]
+        op3=ques["games"]["AxieInfinity"][pts]["op3"]
+        op4=ques["games"]["AxieInfinity"][pts]["op4"]
+      embed = question_embed.qe(pts+1,Q,op1,op2,op3,op4)
 
       returnVal = await channel.send(embed=embed)
 
-      for e in qlist.El:
+      for e in optList:
         await returnVal.add_reaction(e)
-
-
-      
 
       answered = False
       playerInput = None
@@ -70,7 +80,7 @@ async def on_button_click(interaction, button):
           if x.count == 2:
             answered = True
             playerInput = x
-      if str(playerInput.emoji) == qlist.Al[pts]:
+      if str(playerInput.emoji) == ques["games"]["AxieInfinity"][pts]["ans"]:
         n+=1
       pts += 1
 
@@ -84,10 +94,16 @@ async def on_button_click(interaction, button):
         description=
         'You Failed 😭 .Thanks for participating in the Quiz and be sure to Try again',
         color=0xA020F0)
+
+    col = db["Users"] 
+    data={"DiscordId":user,"guild":"IndieGG","game":"AxieInfinity","score":n}
+    col.insert_one(data)
+
     if(n>4):
       await channel.send(embed=endEmbedPass)
     else:
       await channel.send(embed=endEmbedFail)
 
 
-bot.run(TOKEN)
+
+bot.run('OTc2OTQ3NzcwMjE4OTMwMTk2.G1puY2.X6GYkajOvC562QkA0b-FXbUuNR7NMdhKi7-mi8')
