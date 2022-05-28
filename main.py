@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix='!')
 client = discord.Client()
 
 # connecting to mongodb
-Mclient = pymongo.MongoClient("mongodb://localhost:27017/")
+Mclient = pymongo.MongoClient("mongodb+srv://Vishnu:ucvnr0021b@cluster0.q6oxjms.mongodb.net/?retryWrites=true&w=majority")
 db = Mclient["respct"]
 
 @bot.command(name="quiz", help="Redirect to the quiz page")
@@ -20,7 +20,7 @@ async def quiz(ctx):
   embed = discord.Embed(
         title='Respct OnBoarding Application',
         description=
-        'To apply for a membership to our platform, \nDm me and take the quiz using !membership command to \nverify yourself',
+        'To apply for a membership to our platform, \nDm me and take the quiz using !respct command to \nverify yourself',
         color=0xA020F0)
   embed.set_image(url="https://i.ibb.co/HqmsfNv/Mask-Group.png")
   await ctx.send(embed=embed)
