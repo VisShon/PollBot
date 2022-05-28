@@ -3,6 +3,10 @@ import discord
 from discord.ext import commands
 import question_embed
 import pymongo
+import os
+
+TOKEN = os.getenv('token')
+MongoURL = os.getenv('url')
 
 # list of emote options
 optList = ['🔶','🟥','🔷','🟩']
@@ -12,7 +16,7 @@ bot = commands.Bot(command_prefix='!')
 client = discord.Client()
 
 # connecting to mongodb
-Mclient = pymongo.MongoClient("mongodb+srv://Vishnu:ucvnr0021b@cluster0.q6oxjms.mongodb.net/?retryWrites=true&w=majority")
+Mclient = pymongo.MongoClient(MongoURl)
 db = Mclient["respct"]
 
 @bot.command(name="quiz", help="Redirect to the quiz page")
@@ -150,4 +154,4 @@ async def on_button_click(interaction,button):
       await channel.send(embed=endEmbedFail)
 
 
-bot.run('OTc2OTQ3NzcwMjE4OTMwMTk2.G1puY2.X6GYkajOvC562QkA0b-FXbUuNR7NMdhKi7-mi8')
+bot.run(TOKEN)
