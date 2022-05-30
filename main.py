@@ -5,8 +5,10 @@ import question_embed
 import pymongo
 import os
 
-TOKEN = os.getenv('token')
-MongoURL = os.getenv('url')
+from decouple import config
+
+TOKEN = config('token')
+MongoURL = config('url')
 
 # list of emote options
 optList = ['🔶','🟥','🔷','🟩']

@@ -1,22 +1,42 @@
 aiohttp==3.7.4.post0
+asgiref==3.5.0
 async-timeout==3.0.1
 attrs==21.4.0
-certifi==2022.5.18.1
+brotlipy @ file:///Users/runner/miniforge3/conda-bld/brotlipy_1636012319596/work
+certifi==2021.10.8
+cffi @ file:///Users/runner/miniforge3/conda-bld/cffi_1636046173594/work
 chardet==4.0.0
-charset-normalizer==2.0.12
+charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1644853463426/work
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1602866480661/work
+conda==4.12.0
+conda-package-handling @ file:///Users/runner/miniforge3/conda-bld/conda-package-handling_1636022092101/work
+cryptography @ file:///Users/runner/miniforge3/conda-bld/cryptography_1639699578867/work
 discord.py==1.7.3
+Django==4.0.3
+dlib @ file:///Users/runner/miniforge3/conda-bld/dlib_1647301262966/work
+dnspython==2.2.1
 docopt==0.6.2
-idna==3.3
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1642433548627/work
 multidict==6.0.2
-numpy==1.22.3
-opencv-contrib-python==4.5.5.64
-opencv-python==4.5.5.64
+mysql-connector-python==8.0.28
+numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1646717514934/work
+opencv-python==4.5.5
 pipreqs==0.4.11
+protobuf==3.20.0
 py-cord==2.0.0rc1
+pycosat @ file:///Users/runner/miniforge3/conda-bld/pycosat_1636020570107/work
+pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
 pymongo==4.1.1
+pyOpenSSL @ file:///home/conda/feedstock_root/build_artifacts/pyopenssl_1643496850550/work
+PySocks @ file:///Users/runner/miniforge3/conda-bld/pysocks_1635862736740/work
+python-decouple==3.6
 python-dotenv==0.20.0
-requests==2.27.1
+requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1641580202195/work
+ruamel-yaml-conda @ file:///Users/runner/miniforge3/conda-bld/ruamel_yaml_1636009262461/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+sqlparse==0.4.2
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1632160078689/work
 typing_extensions==4.2.0
-urllib3==1.26.9
+urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1641584929973/work
 yarg==0.1.9
 yarl==1.7.2
