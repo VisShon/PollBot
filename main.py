@@ -14,7 +14,7 @@ MongoURL = config('url')
 optList = ['🔶','🟥','🔷','🟩']
 
 # connecting to bot
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='!',intents=discord.Intents.default())
 client = discord.Client()
 
 # connecting to mongodb
