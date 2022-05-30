@@ -13,7 +13,7 @@ opencv-contrib-python==4.5.5.64
 opencv-python==4.5.5.64
 pipreqs==0.4.11
 py-cord==2.0.0rc1
-pymongo==4.1.1
+pymongo[tls,srv]==4.1.1
 python-dotenv==0.20.0
 requests==2.27.1
 typing_extensions==4.2.0
