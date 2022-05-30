@@ -16,7 +16,7 @@ bot = commands.Bot(command_prefix='!')
 client = discord.Client()
 
 # connecting to mongodb
-Mclient = pymongo.MongoClient(MongoURl)
+Mclient = pymongo.MongoClient(MongoURL)
 db = Mclient["respct"]
 
 @bot.command(name="quiz", help="Redirect to the quiz page")
